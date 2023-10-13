@@ -13,6 +13,8 @@ INCLUDES_DIR = include
 INCLUDES = -I$(INCLUDES_DIR)
 OBJS_DIR = obj
 OBJS = $(patsubst $(SRCS_DIR)/%.cpp, $(OBJS_DIR)/%.o,$(SRCS))
+TEST_DIR = test
+TEST_BUILD_DIR = $(TEST_DIR)/build
 RM = rm -rf
 
 all:	$(NAME)
@@ -31,8 +33,14 @@ fclean:	clean
 
 clean:
 	$(RM) $(OBJS)
+	$(RM) $(TEST_BUILD_DIR)
 
 debug:
 	@make re DEBUG=1
 
-.PHONY: all re fclean clean debug leaks
+test:
+	cmake -S $(TEST_DIR)/. -B $(TEST_BUILD_DIR)
+	cmake --build $(TEST_BUILD_DIR)
+	bash -c 'cd $(TEST_BUILD_DIR) && ctest'
+
+.PHONY: all re fclean clean debug leaks test
