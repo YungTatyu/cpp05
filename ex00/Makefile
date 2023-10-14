@@ -41,7 +41,7 @@ debug:
 	@make re DEBUG=1
 
 test:	all
-	cmake -S $(TEST_DIR)/. -B $(TEST_BUILD_DIR)
+	cmake -S . -B $(TEST_BUILD_DIR)
 	cmake --build $(TEST_BUILD_DIR)
 	bash -c 'cd $(TEST_BUILD_DIR) && ctest'
 
