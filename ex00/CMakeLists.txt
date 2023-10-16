@@ -18,7 +18,8 @@ enable_testing()
 
 add_executable(
   mytest
-  test/hello_test.cc
+  test/Bureaucrat_operator_test.cc
+  test/Bureaucrat_grade_test.cc
   src/Bureaucrat.cpp
 )
 
