@@ -14,16 +14,6 @@ Bureaucrat::Bureaucrat(const std::string name, const int grade) : _name(name)
 		_grade = grade;
 }
 
-bool	Bureaucrat::_isGradeTooHigh() const
-{
-	return _grade <= highestGrade;
-}
-
-bool	Bureaucrat::_isGradeTooLow() const
-{
-	return _grade >= lowestGrade;
-}
-
 Bureaucrat::Bureaucrat(const Bureaucrat& obj)
 {
 	this->operator=(obj);
@@ -56,6 +46,16 @@ std::runtime_error	Bureaucrat::GradeTooLowException(int grade)
 	ss << grade;
 	std::string gradeStr = ss.str();
 	return std::runtime_error("grade " +  gradeStr + " is too low!\n" + ERR_MSG);
+}
+
+bool	Bureaucrat::_isGradeTooHigh() const
+{
+	return _grade <= highestGrade;
+}
+
+bool	Bureaucrat::_isGradeTooLow() const
+{
+	return _grade >= lowestGrade;
 }
 
 void	Bureaucrat::incrementGrade()
