@@ -18,9 +18,9 @@ void	print(int n)
 Bureaucrat::Bureaucrat(const std::string name, const int grade) : _name(name)
 {
 	if (grade < highestGrade)
-		throw GradeTooHighException();
+		throw GradeTooHighException(grade);
 	else if (grade > lowestGrade)
-		throw GradeTooLowException();
+		throw GradeTooLowException(grade);
 	else
 		_grade = grade;
 }
@@ -51,20 +51,20 @@ Bureaucrat&	Bureaucrat::operator=(const Bureaucrat &obj)
 	return *this;
 }
 
-std::runtime_error	Bureaucrat::GradeTooHighException()
+std::runtime_error	Bureaucrat::GradeTooHighException(int grade)
 {
 	std::stringstream ss;
 
-	ss << _grade;
+	ss << grade;
 	std::string gradeStr = ss.str();
 	return std::runtime_error("grade " +  gradeStr + " is too high!\n" + ERR_MSG);
 }
 
-std::runtime_error	Bureaucrat::GradeTooLowException()
+std::runtime_error	Bureaucrat::GradeTooLowException(int grade)
 {
 	std::stringstream ss;
 
-	ss << _grade;
+	ss << grade;
 	std::string gradeStr = ss.str();
 	return std::runtime_error("grade " +  gradeStr + " is too low!\n" + ERR_MSG);
 }
@@ -73,7 +73,7 @@ void	Bureaucrat::incrementGrade()
 {
 	if (_isGradeTooLow())
 	{
-		throw GradeTooLowException();
+		throw GradeTooLowException(_grade - 1);
 		return;
 	}
 	_grade--;
@@ -83,7 +83,7 @@ void	Bureaucrat::decrementGrade()
 {
 	if (_isGradeTooHigh())
 	{
-		throw GradeTooHighException();
+		throw GradeTooHighException(_grade + 1);
 		return;
 	}
 	_grade++;

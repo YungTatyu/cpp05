@@ -4,7 +4,15 @@ int	main()
 {
 	std::string name = "b";
 	int	grade = 0;
-	Bureaucrat	b(name, grade);
+	try
+	{
+		Bureaucrat	b(name, grade);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
 
 	return 0;
 }
