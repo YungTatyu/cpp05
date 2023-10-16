@@ -11,8 +11,6 @@ private:
 	Bureaucrat();
 	std::runtime_error	GradeTooHighException(int grade);
 	std::runtime_error	GradeTooLowException(int grade);
-	const static int	highestGrade = 1;
-	const static int	lowestGrade = 150;
 	bool	_isGradeTooHigh() const;
 	bool	_isGradeTooLow() const;
 public:
@@ -24,10 +22,8 @@ public:
 	const int&	getGrade() const;
 	void	incrementGrade();
 	void	decrementGrade();
-	#ifdef TEST
-		std::runtime_error	test_GradeTooHighException(int grade) { return GradeTooHighException(_grade); };
-		std::runtime_error	test_GradeTooLowException(int grade) { return GradeTooLowException(_grade); };
-	#endif
+	const static int	highestGrade = 1;
+	const static int	lowestGrade = 150;
 };
 
 std::ostream&	operator<<(std::ostream& os, const Bureaucrat &obj);

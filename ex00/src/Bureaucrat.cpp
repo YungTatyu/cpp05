@@ -2,17 +2,6 @@
 #include <sstream>
 #include <string>
 
-int	isEven(int n)
-{
-	std::cout << n << "\n";
-	return n % 2 == 0;
-}
-
-void	print(int n)
-{
-	std::cout << n << "\n";
-}
-
 #define ERR_MSG "possible grade is between 1 to 150\n"
 
 Bureaucrat::Bureaucrat(const std::string name, const int grade) : _name(name)
@@ -71,9 +60,9 @@ std::runtime_error	Bureaucrat::GradeTooLowException(int grade)
 
 void	Bureaucrat::incrementGrade()
 {
-	if (_isGradeTooLow())
+	if (_isGradeTooHigh())
 	{
-		throw GradeTooLowException(_grade - 1);
+		throw GradeTooHighException(_grade - 1);
 		return;
 	}
 	_grade--;
@@ -81,9 +70,9 @@ void	Bureaucrat::incrementGrade()
 
 void	Bureaucrat::decrementGrade()
 {
-	if (_isGradeTooHigh())
+	if (_isGradeTooLow())
 	{
-		throw GradeTooHighException(_grade + 1);
+		throw GradeTooLowException(_grade + 1);
 		return;
 	}
 	_grade++;
