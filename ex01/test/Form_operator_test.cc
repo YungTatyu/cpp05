@@ -36,7 +36,7 @@ TEST(Form_operatorTest, insertion) {
 			std::string(", the bureaucrat grade to sign ") +
 			gradeToSignStr +
 			std::string(", the bureaucrat grade to execute ") +
-			gradeToExec +
+			gradeToExecStr +
 			std::string(".\n")
 		);
 		EXPECT_EQ("", stderrOutput);

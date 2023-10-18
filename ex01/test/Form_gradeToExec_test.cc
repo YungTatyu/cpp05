@@ -4,7 +4,7 @@
 #include "Form.hpp"
 
 // 第1引数がテストケース名、第2引数がテスト名
-TEST(Form_gradeToSignTest, init_High) {
+TEST(Form_gradeToExecTest, init_High) {
 	for (int grade = -100; grade < (Form::highestGrade - 1); grade++)
 	{
 		const std::string name = "f";
@@ -36,7 +36,7 @@ TEST(Form_gradeToSignTest, init_High) {
 			EXPECT_EQ("", stdoutOutput);
 			EXPECT_EQ("", stderrOutput);
 			EXPECT_EQ(
-				std::string("grade to execute(") +
+				std::string("grade(") +
 				gradeStr +
 				std::string(") is too high!\n") +
 				std::string("possible grade is between 1 to 150\n"),
@@ -46,7 +46,7 @@ TEST(Form_gradeToSignTest, init_High) {
 	}
 }
 
-TEST(Form_gradeToSignTest, init_Low) {
+TEST(Form_gradeToExecTest, init_Low) {
 	for (int grade = (Form::lowestGrade + 1); grade < 250; grade++)
 	{
 		const std::string name = "f";
@@ -76,7 +76,7 @@ TEST(Form_gradeToSignTest, init_Low) {
 			EXPECT_EQ("", stdoutOutput);
 			EXPECT_EQ("", stderrOutput);
 			EXPECT_EQ(
-				std::string("grade to execute(") +
+				std::string("grade(") +
 				gradeStr +
 				std::string(") is too low!\n") +
 				std::string("possible grade is between 1 to 150\n"),
@@ -86,7 +86,7 @@ TEST(Form_gradeToSignTest, init_Low) {
 	}
 }
 
-TEST(Bureaucrat_gradeTest, init_Pass) {
+TEST(Form_gradeToExecTest, init_Pass) {
 	for (int grade = Form::highestGrade; grade < (Form::lowestGrade + 1); grade++)
 	{
 		const std::string name = "f";

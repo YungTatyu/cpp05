@@ -12,18 +12,20 @@ private:
 	const int	_gradeToSign;
 	const int	_gradeToExec;
 	bool	_isSigned;
-	std::runtime_error	GradeTooHighException(int grade);
-	std::runtime_error	GradeTooLowException(int grade);
+	bool	_isGradeTooHigh(const int& grade) const;
+	bool	_isGradeTooLow(const int& grade) const;
+	std::runtime_error	GradeTooHighException(int grade, std::string errMsg) const;
+	std::runtime_error	GradeTooLowException(int grade, std::string errMsg) const;
 	Form();
 public:
 	Form(const std::string& name, const int& gradeToSign, const int& gradeToExec);
 	Form(const Form& other);
 	Form&	operator=(const Form& other);
 	~Form();
-	const int	getName() const;
-	const int	getGradeToSign() const;
-	const int	getGradeToExec() const;
-	const int	getIsSigned() const;
+	const std::string	getName() const;
+	const int&	getGradeToSign() const;
+	const int&	getGradeToExec() const;
+	const bool&	getIsSigned() const;
 	void	beSigned(const Bureaucrat& b);
 	const static int	highestGrade = 1;
 	const static int	lowestGrade = 150;

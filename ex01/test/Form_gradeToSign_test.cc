@@ -34,7 +34,7 @@ TEST(Form_gradeToSignTest, init_High) {
 			EXPECT_EQ("", stdoutOutput);
 			EXPECT_EQ("", stderrOutput);
 			EXPECT_EQ(
-				std::string("grade to sign(") +
+				std::string("grade(") +
 				gradeStr +
 				std::string(") is too high!\n") +
 				std::string("possible grade is between 1 to 150\n"),
@@ -74,7 +74,7 @@ TEST(Form_gradeToSignTest, init_Low) {
 			EXPECT_EQ("", stdoutOutput);
 			EXPECT_EQ("", stderrOutput);
 			EXPECT_EQ(
-				std::string("grade to sign(") +
+				std::string("grade(") +
 				gradeStr +
 				std::string(") is too low!\n") +
 				std::string("possible grade is between 1 to 150\n"),
@@ -84,7 +84,7 @@ TEST(Form_gradeToSignTest, init_Low) {
 	}
 }
 
-TEST(Bureaucrat_gradeTest, init_Pass) {
+TEST(Form_gradeToSignTest, init_Pass) {
 	for (int grade = Form::highestGrade; grade < (Form::lowestGrade + 1); grade++)
 	{
 		const std::string name = "f";

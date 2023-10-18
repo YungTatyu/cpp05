@@ -7,7 +7,8 @@ endif
 
 SRCS_DIR = src
 SRC =	main.cpp	\
-		Bureaucrat.cpp
+		Bureaucrat.cpp	\
+		Form.cpp
 SRCS = $(addprefix $(SRCS_DIR)/, $(SRC))
 
 INCLUDES_DIR = include

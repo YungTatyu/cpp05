@@ -12,8 +12,8 @@ private:
 	const std::string	_name;
 	int	_grade;
 	Bureaucrat();
-	std::runtime_error	GradeTooHighException(int grade);
-	std::runtime_error	GradeTooLowException(int grade);
+	std::runtime_error	GradeTooHighException(int grade) const;
+	std::runtime_error	GradeTooLowException(int grade) const;
 	bool	_isGradeTooHigh() const;
 	bool	_isGradeTooLow() const;
 public:
@@ -25,7 +25,7 @@ public:
 	const int&	getGrade() const;
 	void	incrementGrade();
 	void	decrementGrade();
-	void	signForm(const Form& form);
+	void	signForm(Form& form);
 	const static int	highestGrade = 1;
 	const static int	lowestGrade = 150;
 };
