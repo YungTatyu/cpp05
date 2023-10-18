@@ -105,12 +105,14 @@ void	Form::beSigned(const Bureaucrat& b)
 	if (b.getGrade() > this->_gradeToSign)
 		throw GradeTooLowException(b.getGrade(), "");
 	this->_isSigned = true;
-	std::cout << b << " signed " << this->_name << '\n';
+	std::cout << b.getName() << " signed " << this->_name << '\n';
 }
 
 std::ostream&	operator<<(std::ostream& os, const Form &obj)
 {
-	os << obj.getName() << ", status " << obj.getIsSigned() << ", the bureaucrat grade to sign "
-		<< obj.getIsSigned() << ", the bureaucrat grade to execute " << obj.getGradeToExec() << ".\n";
+	const std::string isSigned = obj.getIsSigned() ? "signed" : "not signed";
+
+	os << obj.getName() << ", status " << isSigned << ", the bureaucrat grade to sign "
+		<< obj.getGradeToSign() << ", the bureaucrat grade to execute " << obj.getGradeToExec() << ".\n";
 	return os;
 }

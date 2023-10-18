@@ -14,28 +14,21 @@ TEST(Bureaucrat_signFormTest, Grade_Low) {
 	const int	f_grade = 15;
 	Form	f(f_name, f_grade, 1);
 
-	EXPECT_THROW(
-		{
-			b.signForm(f);
-		},
-		std::runtime_error
+	testing::internal::CaptureStdout();
+	testing::internal::CaptureStderr();
+	b.signForm(f);
+	std::string stdoutOutput = testing::internal::GetCapturedStdout();
+	std::string stderrOutput = testing::internal::GetCapturedStderr();
+	EXPECT_EQ("", stdoutOutput);
+	EXPECT_EQ(
+		b_name +
+		std::string(" couldn’t sign ") +
+		f_name +
+		std::string(" because ") +
+		b_name +
+		std::string(" doesn't meet the required grade.\n"),
+		stderrOutput
 	);
-	try
-	{
-		b.signForm(f);
-	}
-	catch(const std::exception& e)
-	{
-		EXPECT_EQ(
-			b_name +
-			std::string(" couldn’t sign") +
-			f_name +
-			std::string(" because ") +
-			b_name +
-			std::string(" doesn't meet the required grade.\n"),
-			e.what()
-		);
-	}
 }
 
 TEST(Bureaucrat_signFormTest, Grade_Pass) {
@@ -54,11 +47,7 @@ TEST(Bureaucrat_signFormTest, Grade_Pass) {
 		testing::internal::CaptureStdout();
 		testing::internal::CaptureStderr();
 
-		EXPECT_NO_THROW(
-			{
-				b.signForm(f);
-			}
-		);
+		b.signForm(f);
 		std::string stdoutOutput = testing::internal::GetCapturedStdout();
 		std::string stderrOutput = testing::internal::GetCapturedStderr();
 		EXPECT_EQ(b_name + " signed " + f_name + "\n", stdoutOutput);

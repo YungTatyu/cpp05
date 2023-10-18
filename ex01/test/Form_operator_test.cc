@@ -22,6 +22,7 @@ TEST(Form_operatorTest, insertion) {
 		std::stringstream ss;
 		ss << gradeToSign;
 		std::string gradeToSignStr = ss.str();
+		ss.str("");
 		ss << gradeToExec;
 		std::string gradeToExecStr = ss.str();
 
