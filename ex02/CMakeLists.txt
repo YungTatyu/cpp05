@@ -30,6 +30,9 @@ add_executable(
   test/ShrubberyCreationForm_test.cc
   test/Bureaucrat_executeForm_test.cc
   src/Bureaucrat.cpp
+  src/PresidentialPardonForm.cpp
+  src/RobotomyRequestForm.cpp
+  src/ShrubberyCreationForm.cpp
   src/AForm.cpp
 )
 

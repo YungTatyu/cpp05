@@ -10,32 +10,32 @@
 
 bool	deleteFile(const std::string& filename)
 {
-	std::string command = "rm -f" + filename;
+	std::string command = "rm -rf " + filename;
 	return std::system(command.c_str()) == 0;
 }
 
 // 第1引数がテストケース名、第2引数がテスト名
 TEST(ShrubberyCreationForm_ExecuteTest, Pass) {
 
-	const std::string content = R"(
-		 v
-        >X<
-         A
-        d$b
-      .d\$$b.
-    .d$i$$\$$b.
-       d$$@b
-      d\$$$ib
-    .d$$$\$$$b
-  .d$$@$$$$\$$ib.
-      d$$i$$b
-     d\$$$$@$b
-  .d$@$$\$$$$$@b.
-.d$$$$i$$$\$$$$$$b.
-        ###
-        ###
-        ### mh
-)";
+	const std::string content = "\
+		 v\
+        >X<\
+         A\
+        d$b\
+      .d\\$$b.\
+    .d$i$$\\$$b.\
+       d$$@b\
+      d\\$$$ib\
+    .d$$$\\$$$b\
+  .d$$@$$$$\\$$ib.\
+      d$$i$$b\
+     d\\$$$$@$b\
+  .d$@$$\\$$$$$@b.\
+.d$$$$i$$$\\$$$$$$b.\
+        ###\
+        ###\
+        ### mh\
+";
 	for (int i = ShrubberyCreationForm::gradeToExec; i >= Bureaucrat::highestGrade; i--)
 	{
 		const std::string	name = "b";

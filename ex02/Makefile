@@ -49,6 +49,7 @@ test:
 	cmake -S . -B $(TEST_BUILD_DIR)
 	cmake --build $(TEST_BUILD_DIR)
 	bash -c 'cd $(TEST_BUILD_DIR) && ctest'
+	# $(TEST_BUILD_DIR)/mytest
 
 -include $(DEPS)
 
