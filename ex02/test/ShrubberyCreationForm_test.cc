@@ -7,7 +7,7 @@
 #include <fstream>
 #include <filesystem>
 
-bool	_deleteFile(const std::string& filename)
+bool	deleteFile(const std::string& filename)
 {
 	try
 	{
@@ -54,7 +54,7 @@ TEST(ShrubberyCreationForm_ExecuteTest, Pass) {
 		ShrubberyCreationForm	f(target);
 		b2.signForm(f);
 
-		if (!_deleteFile(filename))
+		if (!deleteFile(filename))
 			FAIL() << "error: failed to remove a file\n";
 		EXPECT_NO_THROW(
 			{
@@ -67,7 +67,7 @@ TEST(ShrubberyCreationForm_ExecuteTest, Pass) {
 			FAIL() << "error: failed to open a file\n";
 		buffer << file.rdbuf();
 		EXPECT_EQ(buffer.str(), content);
-		if (!_deleteFile(filename))
+		if (!deleteFile(filename))
 			FAIL() << "error: failed to remove a file\n";
 	}
 }

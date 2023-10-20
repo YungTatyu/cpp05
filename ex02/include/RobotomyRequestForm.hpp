@@ -14,8 +14,8 @@ public:
 	~RobotomyRequestForm();
 	RobotomyRequestForm&	operator=(const RobotomyRequestForm& other);
 	void	execute(Bureaucrat const& executor) const;
-	static const int	gradeToSign = 25;
-	static const int	gradeToExec = 5;
+	static const int	gradeToSign = 72;
+	static const int	gradeToExec = 45;
 };
 
 
