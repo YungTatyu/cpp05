@@ -2,9 +2,9 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -25,8 +25,8 @@ public:
 	const int&	getGrade() const;
 	void	incrementGrade();
 	void	decrementGrade();
-	void	signForm(Form& form);
-	void	executeForm(Form const& form);
+	void	signForm(AForm& form);
+	void	executeForm(AForm const& form);
 	const static int	highestGrade = 1;
 	const static int	lowestGrade = 150;
 };

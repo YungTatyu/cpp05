@@ -14,6 +14,7 @@ public:
 	~PresidentialPardonForm();
 	PresidentialPardonForm&	operator=(const PresidentialPardonForm& other);
 	void	execute(Bureaucrat const& executor) const;
+	static const std::string	name;
 	static const int	gradeToSign = 25;
 	static const int	gradeToExec = 5;
 };

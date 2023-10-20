@@ -25,6 +25,10 @@ add_executable(
   test/Form_gradeToExec_test.cc
   test/Form_gradeToSign_test.cc
   test/Form_operator_test.cc
+  test/PresidentialPardonForm_test.cc
+  test/RobotomyRequestForm_test.cc
+  test/ShrubberyCreationForm_test.cc
+  test/Bureaucrat_executeForm_test.cc
   src/Bureaucrat.cpp
   src/Form.cpp
 )
