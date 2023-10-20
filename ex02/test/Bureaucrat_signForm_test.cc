@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 #include <vector>
 
 TEST(Bureaucrat_signFormTest, Grade_Low) {
@@ -12,7 +12,7 @@ TEST(Bureaucrat_signFormTest, Grade_Low) {
 
 	const std::string	f_name = "f";
 	const int	f_grade = 15;
-	Form	f(f_name, f_grade, 1);
+	AForm	f(f_name, f_grade, 1);
 
 	testing::internal::CaptureStdout();
 	testing::internal::CaptureStderr();
@@ -42,7 +42,7 @@ TEST(Bureaucrat_signFormTest, Grade_Pass) {
 		Bureaucrat	b(b_name, *it);
 
 		const std::string	f_name = "f";
-		Form	f(f_name, f_grade, 1);
+		AForm	f(f_name, f_grade, 1);
 
 		testing::internal::CaptureStdout();
 		testing::internal::CaptureStderr();

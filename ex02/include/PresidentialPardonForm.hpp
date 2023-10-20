@@ -8,6 +8,7 @@ class PresidentialPardonForm : public AForm
 private:
 	const std::string	_target;
 	PresidentialPardonForm();
+	PresidentialPardonForm(const std::string& name, const int& gradeToSign, const int& gradeToExec);
 public:
 	PresidentialPardonForm(const std::string& target);
 	PresidentialPardonForm(const PresidentialPardonForm& other);

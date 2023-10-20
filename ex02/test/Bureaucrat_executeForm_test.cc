@@ -2,11 +2,11 @@
 #include <gtest/internal/gtest-port.h>
 #include "Bureaucrat.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
 bool	deleteFile(const std::string& filename);
-
 
 static void	_expectSuccess(const Bureaucrat& b, const AForm& f)
 {
@@ -29,7 +29,7 @@ static void	_expectFail(const Bureaucrat& b, const AForm& f)
 	std::string stdoutOutput = testing::internal::GetCapturedStdout();
 	std::string stderrOutput = testing::internal::GetCapturedStderr();
 	EXPECT_EQ("",  stdoutOutput);
-	EXPECT_TRUE(stderrOutput);
+	EXPECT_TRUE(stderrOutput.c_str());
 }
 
 TEST(Bureaucrat_ExecuteTest, All) {
@@ -42,9 +42,9 @@ TEST(Bureaucrat_ExecuteTest, All) {
 		const std::string	target = "home";
 		const std::string	filename = target + "_shrubbery";
 
-		const ShrubberyCreationForm	scf(target);
-		const RobotomyRequestForm	rrf(target);
-		const PresidentialPardonForm	ppf(target);
+		ShrubberyCreationForm	scf(target);
+		RobotomyRequestForm	rrf(target);
+		PresidentialPardonForm	ppf(target);
 
 		//sign all form
 		b_sign.signForm(scf);

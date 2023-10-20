@@ -7,6 +7,8 @@
 #define EXEC_SUCCESS "robotomy successed!\n"
 #define EXEC_FAIL "robotomy failed :(\n"
 
+const int	RobotomyRequestForm::gradeToSign;
+const int	RobotomyRequestForm::gradeToExec;
 const std::string	RobotomyRequestForm::name = "RobotomyRequestForm";
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
@@ -16,6 +18,12 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other)
 	: AForm(name, RobotomyRequestForm::gradeToSign, RobotomyRequestForm::gradeToExec), _target(other._target) {}
 
 RobotomyRequestForm::~RobotomyRequestForm() {}
+
+RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm& other)
+{
+	AForm::operator=(other);
+	return *this;
+}
 
 void	RobotomyRequestForm::execute(Bureaucrat const& executor) const
 {

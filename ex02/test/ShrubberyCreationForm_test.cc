@@ -1,24 +1,17 @@
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include <vector>
 #include <fstream>
 #include <filesystem>
+#include <cstdlib>
 
 bool	deleteFile(const std::string& filename)
 {
-	try
-	{
-		std::filesystem::remove(filename);
-	}
-	catch(const std::filesystem::filesystem_error& e)
-	{
-		std::cerr << "Error: " << e.what() << std::endl;
-		return false;
-	}
-	return true;
+	std::string command = "rm -f" + filename;
+	return std::system(command.c_str()) == 0;
 }
 
 // 第1引数がテストケース名、第2引数がテスト名

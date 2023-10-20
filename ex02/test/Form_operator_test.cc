@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 #include <sstream>
 #include <string>
 #include <vector>

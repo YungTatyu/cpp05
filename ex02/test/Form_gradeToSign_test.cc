@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 // 第1引数がテストケース名、第2引数がテスト名
 TEST(Form_gradeToSignTest, init_High) {

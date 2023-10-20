@@ -2,6 +2,8 @@
 #include <fstream>
 #define EXEC_MSG " is pardoned by Zaphod Beeblebrox\n"
 
+const int	PresidentialPardonForm::gradeToSign;
+const int	PresidentialPardonForm::gradeToExec;
 const std::string	PresidentialPardonForm::name = "PresidentialPardonForm";
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string& target)
@@ -11,6 +13,13 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& oth
 	: AForm(name, PresidentialPardonForm::gradeToSign, PresidentialPardonForm::gradeToExec), _target(other._target) {}
 
 PresidentialPardonForm::~PresidentialPardonForm() {}
+
+
+PresidentialPardonForm&	PresidentialPardonForm::operator=(const PresidentialPardonForm& other)
+{
+	AForm::operator=(other);
+	return *this;
+}
 
 void	PresidentialPardonForm::execute(Bureaucrat const& executor) const
 {

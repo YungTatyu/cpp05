@@ -25,8 +25,8 @@ public:
 	const int&	getGrade() const;
 	void	incrementGrade();
 	void	decrementGrade();
-	void	signForm(AForm& form);
-	void	executeForm(AForm const& form);
+	void	signForm(AForm& form) const;
+	void	executeForm(AForm const& form) const;
 	const static int	highestGrade = 1;
 	const static int	lowestGrade = 150;
 };

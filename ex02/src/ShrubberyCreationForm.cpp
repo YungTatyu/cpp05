@@ -2,6 +2,8 @@
 #include <fstream>
 #define FILENAME "_shrubbery"
 
+const int	ShrubberyCreationForm::gradeToSign;
+const int	ShrubberyCreationForm::gradeToExec;
 const std::string	ShrubberyCreationForm::name = "ShrubberyCreationForm";
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target)
@@ -11,6 +13,12 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
 	: AForm(name, ShrubberyCreationForm::gradeToSign, ShrubberyCreationForm::gradeToExec), _target(other._target) {}
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
+
+ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other)
+{
+	AForm::operator=(other);
+	return *this;
+}
 
 void	ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 {
