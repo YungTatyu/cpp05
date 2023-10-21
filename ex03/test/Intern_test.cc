@@ -11,9 +11,10 @@ bool	deleteFile(const std::string& filename);
 
 void	_execInternTest(const Bureaucrat& b, const std::string& formName, const std::string& target)
 {
+	Intern	intern;
 	AForm	*form = intern.makeForm(formName, target);
 
-	b.signForm(form);
+	b.signForm(*form);
 	testing::internal::CaptureStdout();
 	testing::internal::CaptureStderr();
 	b.executeForm(*form);
@@ -46,11 +47,10 @@ TEST(Intern_makeFormTest, PresidentialPardonForm) {
 	_execInternTest(b, "PresidentialPardonForm", target);
 }
 
-TEST(Intern_makeFormTest, PresidentialPardonForm) {
+TEST(Intern_makeFormTest, RobotomyRequestForm) {
 	const std::string	name = "b";
 	const Bureaucrat	b(name, 1);
 	const std::string	target = "home";
-	const Intern	intern;
 
 	_execInternTest(b, "RobotomyRequestForm", target);
 }
@@ -59,7 +59,7 @@ TEST(Intern_makeFormTest, Fail) {
 	const std::string	name = "b";
 	const std::string	target = "home";
 	const std::string	file = "no exist file";
-	const Intern	intern;
+	Intern	intern;
 
 	testing::internal::CaptureStdout();
 	testing::internal::CaptureStderr();
@@ -69,6 +69,6 @@ TEST(Intern_makeFormTest, Fail) {
 
 	EXPECT_EQ("", stdoutOutput);
 	EXPECT_EQ(file + ": No such file exists\n", stderrOutput);
-	EXPECT_STREQ(NULL, form);
+	EXPECT_EQ(NULL, form);
 
 }

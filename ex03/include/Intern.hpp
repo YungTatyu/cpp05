@@ -2,12 +2,23 @@
 #define INTERN_HPP
 
 #include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 class Intern
 {
 private:
 	Intern(const Intern& other);
 	Intern& operator=(const Intern& other);
+	AForm	*_makeShrubberyCreationForm(const std::string& target);
+	AForm	*_makeRobotomyRequestForm(const std::string& target);
+	AForm	*_makePresidentialPardonForm(const std::string& target);
+	const static int	totalFunctions = 3;
+	const static std::string	validFormNames[totalFunctions];
+	// AForm	*(Intern::* const FormMaker[totalFunctions])(const std::string& target);
+	AForm	*(Intern::*FormMaker[totalFunctions])(const std::string& target);
+
 public:
 	Intern();
 	~Intern();

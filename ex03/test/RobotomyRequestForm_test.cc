@@ -78,8 +78,6 @@ TEST(RobotomyRequestForm_ExecuteTest, LowGrade) {
 
 		RobotomyRequestForm	f(target);
 		b2.signForm(f);
-		std::clearerr(stdin);
-		std::cin;
 
 		EXPECT_THROW(
 			{
