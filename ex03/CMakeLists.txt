@@ -29,11 +29,13 @@ add_executable(
   test/RobotomyRequestForm_test.cc
   test/ShrubberyCreationForm_test.cc
   test/Bureaucrat_executeForm_test.cc
+  test/Intern_test.cc
   src/Bureaucrat.cpp
   src/PresidentialPardonForm.cpp
   src/RobotomyRequestForm.cpp
   src/ShrubberyCreationForm.cpp
   src/AForm.cpp
+  src/Intern.cpp
 )
 
 include_directories(
