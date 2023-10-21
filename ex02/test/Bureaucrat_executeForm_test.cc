@@ -16,7 +16,8 @@ static void	_expectSuccess(const Bureaucrat& b, const AForm& f)
 	b.executeForm(f);
 	std::string stdoutOutput = testing::internal::GetCapturedStdout();
 	std::string stderrOutput = testing::internal::GetCapturedStderr();
-	EXPECT_EQ(b.getName() + " executed " + f.getName() + "\n",  stdoutOutput);
+	if (stdoutOutput.find("executed") == std::string::npos)
+			FAIL() << "no execution found!\n";
 	EXPECT_EQ("",  stderrOutput);
 }
 

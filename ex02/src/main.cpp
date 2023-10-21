@@ -1,14 +1,19 @@
 #include "Bureaucrat.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int	main()
 {
 	{
 		std::string name = "b";
 		int	grade = 1;
+		Bureaucrat	b(name, grade);
 		try
 		{
-			Bureaucrat	b(name, grade);
-			b.incrementGrade();
+			PresidentialPardonForm	f("home");
+			b.signForm(f);
+			b.executeForm(f);
 		}
 		catch(const std::exception& e)
 		{
@@ -18,10 +23,12 @@ int	main()
 	{
 		std::string name = "b";
 		int	grade = 150;
+		Bureaucrat	b(name, grade);
 		try
 		{
-			Bureaucrat	b(name, grade);
-			b.decrementGrade();
+			PresidentialPardonForm	f("home");
+			b.signForm(f);
+			b.executeForm(f);
 		}
 		catch(const std::exception& e)
 		{

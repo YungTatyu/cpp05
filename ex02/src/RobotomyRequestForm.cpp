@@ -30,7 +30,7 @@ void	RobotomyRequestForm::execute(Bureaucrat const& executor) const
 	const bool	isSigned = getIsSigned();
 	std::string errorMsg;
 
-	if (getGradeToExec() < RobotomyRequestForm::gradeToExec || isSigned == false)
+	if (executor.getGrade() > RobotomyRequestForm::gradeToExec || isSigned == false)
 	{
 		if (isSigned == false)
 			errorMsg = getName() + " doesn't have a sign on it so can't execute.\n";

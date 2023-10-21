@@ -3,6 +3,7 @@
 #include <string>
 
 #define ERRMSG "possible grade is between 1 to 150\n"
+#define EXEC " executed "
 
 Bureaucrat::Bureaucrat(const std::string name, const int grade) : _name(name)
 {
@@ -106,6 +107,7 @@ void	Bureaucrat::executeForm(AForm const& form) const
 	try
 	{
 		form.execute(*this);
+		std::cout << _name << EXEC << form.getName() << std::endl;
 	}
 	catch(const std::exception& e)
 	{

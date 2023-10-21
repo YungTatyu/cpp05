@@ -35,11 +35,9 @@ TEST(PresidentialPardonForm_ExecuteTest, NoSign) {
 	{
 		const std::string	name = "b";
 		const Bureaucrat	b(name, i);
-		const Bureaucrat	b2(name, 1);
 		const std::string	target = "home";
 
 		PresidentialPardonForm	f(target);
-		b2.signForm(f);
 
 		EXPECT_THROW(
 			{
@@ -61,14 +59,14 @@ TEST(PresidentialPardonForm_ExecuteTest, NoSign) {
 			std::string stderrOutput = testing::internal::GetCapturedStderr();
 			EXPECT_EQ("", stdoutOutput);
 			EXPECT_EQ("", stderrOutput);
-			EXPECT_EQ(target + " doesn't have a sign on it so can't execute.\n", e.what());
+			EXPECT_EQ(f.getName() + " doesn't have a sign on it so can't execute.\n", e.what());
 		}
 	}
 }
 
 TEST(PresidentialPardonForm_ExecuteTest, LowGrade) {
 
-	for (int i = Bureaucrat::lowestGrade; i >= PresidentialPardonForm::gradeToExec; i--)
+	for (int i = Bureaucrat::lowestGrade; i > PresidentialPardonForm::gradeToExec; i--)
 	{
 		const std::string	name = "b";
 		const Bureaucrat	b(name, i);

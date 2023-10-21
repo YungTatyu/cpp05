@@ -67,7 +67,7 @@ TEST(ShrubberyCreationForm_ExecuteTest, Pass) {
 
 TEST(ShrubberyCreationForm_ExecuteTest, LowGrade) {
 
-	for (int i = Bureaucrat::lowestGrade; i >= ShrubberyCreationForm::gradeToExec; i--)
+	for (int i = Bureaucrat::lowestGrade; i > ShrubberyCreationForm::gradeToExec; i--)
 	{
 		const std::string	name = "b";
 		const Bureaucrat	b(name, i);
@@ -151,7 +151,7 @@ TEST(ShrubberyCreationForm_ExecuteTest, NoSign) {
 			std::string stderrOutput = testing::internal::GetCapturedStderr();
 			EXPECT_EQ("", stdoutOutput);
 			EXPECT_EQ("", stderrOutput);
-			EXPECT_EQ(target + " doesn't have a sign on it so can't execute.\n", e.what());
+			EXPECT_EQ(f.getName() + " doesn't have a sign on it so can't execute.\n", e.what());
 		}
 	}
 }

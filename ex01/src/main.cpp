@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int	main()
 {
@@ -8,7 +9,8 @@ int	main()
 		try
 		{
 			Bureaucrat	b(name, grade);
-			b.incrementGrade();
+			Form	f("file", 10, 1);
+			b.signForm(f);
 		}
 		catch(const std::exception& e)
 		{
@@ -21,7 +23,8 @@ int	main()
 		try
 		{
 			Bureaucrat	b(name, grade);
-			b.decrementGrade();
+			Form	f("file", 10, 1);
+			b.signForm(f);
 		}
 		catch(const std::exception& e)
 		{

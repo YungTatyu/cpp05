@@ -25,7 +25,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 	const bool	isSigned = getIsSigned();
 	std::string errorMsg;
 
-	if (getGradeToExec() < ShrubberyCreationForm::gradeToExec || isSigned == false)
+	if (executor.getGrade() > ShrubberyCreationForm::gradeToExec || isSigned == false)
 	{
 		if (isSigned == false)
 			errorMsg = getName() + " doesn't have a sign on it so can't execute.\n";
